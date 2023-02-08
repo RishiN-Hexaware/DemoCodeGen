@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Code/Estimate.PlatformServices/Estimate.PlatformServices.csproj", "Code/Estimate.PlatformServices/"]
 COPY ["Code/Estimate.PlatformServices.Contracts/Estimate.PlatformServices.Contracts.csproj", "Code/Estimate.PlatformServices.Contracts/"]
