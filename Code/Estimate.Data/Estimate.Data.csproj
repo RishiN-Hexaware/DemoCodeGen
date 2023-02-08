@@ -5,7 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Estimate.businessEntities\Estimate.BusinessEntities.csproj" />
+    <ProjectReference Include="..\Estimate.BusinessEntities\Estimate.BusinessEntities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
