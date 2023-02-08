@@ -20,6 +20,6 @@ FROM build AS publish
 RUN dotnet publish "Estimate.PlatformServices.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /App
+WORKDIR /app
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "DotNet.Docker.dll"] 
