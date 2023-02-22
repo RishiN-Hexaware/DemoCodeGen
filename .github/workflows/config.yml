@@ -6,6 +6,7 @@ on:
       - 'main'
     paths:
       - 'configuration/**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
       with:
         app-name: 'app-demo-dotnet'
         # slot-name: 'staging'  # Optional and needed only if the settings have to be configured on the specific deployment slot
-        app-settings-json: 'configuration/appsettings.json' 
+        app-settings-json: '{ "DOCKER_REGISTRY_SERVER_PASSWORD":"U3meqz+0ciovknF70d2wWcsjoA=gZ8z5","DOCKER_REGISTRY_SERVER_URL":"https://acrrapidxdev.azurecr.io","DOCKER_REGISTRY_SERVER_USERNAME":"acrrapidxdev","WEBSITES_ENABLE_APP_SERVICE_STORAGE":"false","NewConfig":"Checking"}'
         # connection-strings-json: '${{ secrets.CONNECTION_STRINGS }}'
         # general-settings-json: '{"alwaysOn": "false", "webSocketsEnabled": "true"}' #'General configuration settings as Key Value pairs'
       id: settings
