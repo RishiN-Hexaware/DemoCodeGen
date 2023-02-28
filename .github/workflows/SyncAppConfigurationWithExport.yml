@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SyncAppConfiguration
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'prod.properties'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'prod.properties'
+          format: 'properties'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
+          separator: '.'
+          strict: true
