@@ -7,18 +7,21 @@ on:
     branches:
       - 'main'
     paths:
-      - 'prod.properties'
+      - 'configuration/**'
 
 jobs:
   syncconfig:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Import to app Configuration
       - uses: azure/appconfiguration-sync@v1
         with:
-          configurationFile: 'prod.properties'
-          format: 'properties'
+          configurationFile: 'appsettings.json'
+          format: 'JSON'
           # Replace <ConnectionString> with the name of the secret in your repository
           connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
           separator: '.'
           strict: true
+      - name: Export to app service
+        run: az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
