@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Import to app Configuration
-      - uses: azure/appconfiguration-sync@v1
+        uses: azure/appconfiguration-sync@v1
         with:
           configurationFile: 'appsettings.json'
           format: 'JSON'
@@ -24,4 +24,4 @@ jobs:
           separator: '.'
           strict: true
       - name: Export to app service
-        run: az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
+        run: az appconfig kv export --name appc-rapidx --destination app-demo-dotnet --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
