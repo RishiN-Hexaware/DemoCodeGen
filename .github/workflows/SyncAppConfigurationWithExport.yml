@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  syncconfig:
+  syncConfigurations:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -23,7 +23,7 @@ jobs:
           format: 'json'
           # Replace <ConnectionString> with the name of the secret in your repository
           connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
-          separator: '.'
+          separator: ':'
           strict: true
       - name: Login to Azure
         uses: azure/login@v1
