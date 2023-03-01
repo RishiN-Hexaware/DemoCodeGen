@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'prod.properties'
+      - 'prod.json'
       
   workflow_dispatch:
 
@@ -19,8 +19,8 @@ jobs:
       - name: Azure App Configuration Sync
         uses: Azure/AppConfiguration-Sync@v1.1.3
         with:
-          configurationFile: 'prod.properties'
-          format: 'properties'
+          configurationFile: 'prod.json'
+          format: 'json'
           # Replace <ConnectionString> with the name of the secret in your repository
           connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
           separator: '.'
