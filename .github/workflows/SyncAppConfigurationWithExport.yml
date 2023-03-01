@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'prod.json'
+      - 'configuration/prod.json'
       
   workflow_dispatch:
 
