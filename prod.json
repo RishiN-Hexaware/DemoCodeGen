@@ -4,7 +4,6 @@
     "DOCKER_REGISTRY_SERVER_USERNAME":"acrrapidxdev",
     "WEBSITES_ENABLE_APP_SERVICE_STORAGE":"false",
     "sqlconnectionstring":"sql",
-    "checking":"true",
     "Team":"RSR"
     }
     
