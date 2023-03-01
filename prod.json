@@ -5,6 +5,7 @@
     "WEBSITES_ENABLE_APP_SERVICE_STORAGE":"false",
     "sqlconnectionstring":"sql",
     "checking":"true",
+    "checking2":"true",
     "Team":"RSR"
     }
     
