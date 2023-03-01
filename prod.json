@@ -3,8 +3,7 @@
     "DOCKER_REGISTRY_SERVER_URL":"https://acrrapidxdev.azurecr.io",
     "DOCKER_REGISTRY_SERVER_USERNAME":"acrrapidxdev",
     "WEBSITES_ENABLE_APP_SERVICE_STORAGE":"false",
-    "NewConfig":"Checking",
     "sqlconnectionstring":"sql",
-    "checking":"false"
+    "checking":"true"
     }
     

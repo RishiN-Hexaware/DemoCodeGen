@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'configuration/prod.json'
+      - 'prod.json'
       
   workflow_dispatch:
 
@@ -25,5 +25,5 @@ jobs:
           connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
           separator: '.'
           strict: true
-      # - name: Export to app service
-      #   run: az appconfig kv export --name appc-rapidx --destination app-demo-dotnet --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
+      - name: Export to app service
+        run: az appconfig kv export --name appc-rapidx --destination app-demo-dotnet --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
