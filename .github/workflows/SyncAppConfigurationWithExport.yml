@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Import to app Configuration
-        uses: azure/appconfiguration-sync@v1
+      - name: Azure App Configuration Sync
+        uses: Azure/AppConfiguration-Sync@v1.1.3
         with:
           configurationFile: 'appsettings.json'
           format: 'json'
