@@ -30,4 +30,5 @@ jobs:
         with:
           creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
       - name: Export to app service
-        run: az appconfig kv export --name appc-rapidx --destination appservice --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
+        # run: az appconfig kv export --name appc-rapidx --destination appservice --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
+        run: az appconfig kv list -n appc-rapidx
