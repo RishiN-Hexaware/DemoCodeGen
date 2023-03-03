@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'prod.json'
+      - 'configuration/**'
       
   workflow_dispatch:
 
@@ -19,16 +19,18 @@ jobs:
       - name: Azure App Configuration Sync
         uses: Azure/AppConfiguration-Sync@v1.1.3
         with:
-          configurationFile: 'prod.json'
+          configurationFile: 'appsettings.json'
           format: 'json'
           # Replace <ConnectionString> with the name of the secret in your repository
           connectionString: "Endpoint=https://appc-rapidx.azconfig.io;Id=5Tcc-lh-s0:G5Gyd6/XARn3jPw5RQqV;Secret=4n9zA74KFQQBSYYrvThUltnMHDRBB3McdihsJVwxGiI="
           separator: ':'
           strict: true
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+      - name: Login using managed identity
+        run: az login --identity
+      # - name: Login to Azure
+      #   uses: azure/login@v1
+      #   with:
+      #     creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
       - name: Export to app service
-        # run: az appconfig kv export --name appc-rapidx --destination appservice --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-demo-dotnet --label prod
-        run: az appconfig kv list -n appc-rapidx
+        run: az appconfig kv export --name appc-rapidx --destination appservice --appservice-account /subscriptions/ce15a333-79ee-4b82-9bdb-147ea6324d30/resourceGroups/rg-elixir-demo/providers/Microsoft.Web/sites/app-rapidx-appconfig -y
+        # run: az appconfig kv list -n appc-rapidx
